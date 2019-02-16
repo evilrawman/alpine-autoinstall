@@ -1,5 +1,7 @@
-echo "\nWelcome to the non-official Alpine for Raspberry PI automatic installation."
-echo "								By evilrawman.\n"
+echo ""
+echo "Welcome to the non-official Alpine for Raspberry PI automatic installation."
+echo "								By evilrawman."
+echo ""
 
 # general setup
 echo "http://nl.alpinelinux.org/alpine/v3.8/main" >> /etc/fstab
@@ -8,7 +10,7 @@ setup-alpine
 echo "First, you need to custom your system properties manually before beginning: "
 echo "	Well done!"
 
-echo "\n"
+echo ""
 
 # general update
 echo "	Upgrading system..."
@@ -17,7 +19,7 @@ apk upgrade
 lbu commit -d
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 # time update
 echo "	Setting NTP daemon and clock.."
@@ -27,7 +29,7 @@ setup-ntp
 lbu commit -d
 echo "	Done!"
 
-setup-ntp
+echo ""
 
 # xfce4 install
 setup-xorg-base ​apk add xf86-video-fbdev xf86-video-vesa xf86-input-mouse xf86-input-keyboard dbus ​set​xkbmap kbd
@@ -41,32 +43,32 @@ echo "	Making the sd-card writable..."
 mount /media/mmcblk0p1 -o rw,remount
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 echo "	Changing fstab to always mount as writeable..."
 sed -i '$ d' /etc/fstab
 echo "/dev/mmcblk0p1 /media/mmcblk0p1 vfat rw,relatime,fmask=0022,dmask=0022,errors=remount-ro 0 0
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 echo "	Creating 1 GB loop-back file, this may take a time..."
 dd if=/dev/zero of=/media/mmcblk0p1/persist.img bs=1024 count=0 seek=1048576
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 echo "	Downloading ext utilities..."
 apk add e2fsprogs
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 echo "	Formating the loop-back file..."
 mkfs.ext4 /media/mmcblk0p1/persist.img
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 echo "	Mounting the storage..."
 echo "/media/mmcblk0p1/persist.img /media/persist ext4 rw,relatime,errors=remount-ro 0 0" >> /etc/fstab
@@ -74,7 +76,7 @@ mkdir /media/persist
 mount -a
 echo "	Done!"
 
-echo "\n"
+echo ""
 
 echo "	Making overlay folders..."
 mkdir /media/persist/usr
