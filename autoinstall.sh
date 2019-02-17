@@ -32,10 +32,15 @@ echo "	Done!"
 echo ""
 
 # xfce4 install
-setup-xorg-base ​apk add xf86-video-fbdev xf86-video-vesa xf86-input-mouse xf86-input-keyboard dbus ​set​xkbmap kbd
-rc-update ​​add dbus
-apk add xfce4
-lbu_commit -d
+echo -n "	Would you like to install xfce4? [y/n]: "
+read xia
+if ["$xia" = "y"]
+then
+	setup-xorg-base ​apk add xf86-video-fbdev xf86-video-vesa xf86-input-mouse xf86-input-keyboard dbus ​set​xkbmap kbd
+	rc-update ​​add dbus
+	apk add xfce4
+	lbu_commit -d
+fi
 
 # loopback image with overlayfs
 echo "	Making the sd-card writable..."
