@@ -1,6 +1,6 @@
 # alpine-autoinstall
 
-An easy-way script to install alpine on a Raspberry PI machine.
+An easy-way script to install alpine on a Raspberry Pi machine.
 
 ## Advices
 
