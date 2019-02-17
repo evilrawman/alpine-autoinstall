@@ -38,7 +38,6 @@ apk add xfce4
 lbu_commit -d
 
 # loopback image with overlayfs
-
 echo "	Making the sd-card writable..."
 mount /media/mmcblk0p1 -o rw,remount
 echo "	Done!"
@@ -84,5 +83,4 @@ mkdir /media/persist/.work
 echo "overlay /usr overlay lowerdir=/usr,upperdir=/media/persist/usr,workdir=/media/persist/.work 0 0" >> /etc/fstab
 mount -a
 echo "	Done!"
-
 lbu_commit -d
