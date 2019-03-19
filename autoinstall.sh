@@ -1,13 +1,13 @@
 echo ""
-echo "Welcome to the non-official Alpine for Raspberry PI automatic installation."
+echo "Welcome to the non-official Alpine Linux (armhf and aarch64) for Raspberry Pi automatic installation."
 echo "								By evilrawman."
 echo ""
 
 # general setup
 echo "http://nl.alpinelinux.org/alpine/v3.8/main" >> /etc/fstab
 echo "http://nl.alpinelinux.org/alpine/v3.8/community" >> /etc/fstab
-setup-alpine
 echo "First, you need to custom your system properties manually before beginning: "
+setup-alpine
 echo "	Well done!"
 
 echo ""
@@ -34,7 +34,7 @@ echo ""
 # xfce4 install
 echo -n "	Would you like to install xfce4? [y/n]: "
 read xia
-if ["$xia" = "y"]
+if [ "$xia" = "y" ]
 then
 	setup-xorg-base ​apk add xf86-video-fbdev xf86-video-vesa xf86-input-mouse xf86-input-keyboard dbus ​set​xkbmap kbd
 	rc-update ​​add dbus
